@@ -1,0 +1,62 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { site } from '../data/site.js';
+---
+
+<Layout
+  title="About Us"
+  description="Ware Therapeutic Massage & Acupuncture is a licensed clinic in Windermere, Edmonton offering relaxing and rehabilitative massage, acupuncture and manual osteopathy."
+>
+  <section class="bg-sage-100 border-b border-sage-200">
+    <div class="mx-auto max-w-6xl px-4 py-16 md:py-20 text-center">
+      <p class="text-sm font-semibold tracking-[0.25em] uppercase text-sage-600">About us</p>
+      <h1 class="mt-3 font-display text-4xl md:text-5xl text-sage-900">
+        Relaxing &amp; rehabilitative care in Windermere
+      </h1>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-4xl px-4 py-16 space-y-12">
+    <div class="grid gap-10 md:grid-cols-[1fr_18rem] md:items-center">
+      <div>
+        <p class="text-lg leading-relaxed text-ink/80">
+          Ware Therapeutic Massage &amp; Acupuncture is a licensed clinic in the
+          Windermere area of south Edmonton. Our therapists are highly experienced
+          and dedicated to their craft, offering massage therapy, acupuncture and
+          manual osteopathy focused on both relaxation and rehabilitation.
+        </p>
+        <p class="mt-5 text-lg leading-relaxed text-ink/80">
+          We're open seven days a week from 9 AM to 9 PM, and we offer direct
+          billing to most insurance providers — so you can focus on feeling
+          better, not on paperwork.
+        </p>
+      </div>
+      <img
+        src="/images/front-desk.jpg"
+        alt="Reception at Ware Therapeutic Massage & Acupuncture in Windermere, Edmonton"
+        class="card-lift w-full rounded-2xl border border-sage-200 shadow-sm object-cover"
+        loading="lazy"
+      />
+    </div>
+
+    <div class="rounded-2xl border border-sage-200 bg-white p-8 shadow-sm">
+      <h2 class="font-display text-2xl text-sage-900">Cancellation policy</h2>
+      <p class="mt-4 leading-relaxed text-ink/80">
+        We require <strong>24 hours' notice</strong> to cancel or reschedule an
+        appointment. Missed appointments or cancellations with less than 24
+        hours' notice are charged the full treatment fee. Thank you for
+        understanding — this allows us to offer your spot to another client.
+      </p>
+    </div>
+
+    <div class="rounded-2xl border border-sage-200 bg-white p-8 shadow-sm">
+      <h2 class="font-display text-2xl text-sage-900">Join our team</h2>
+      <p class="mt-4 leading-relaxed text-ink/80">
+        We're always interested in meeting talented registered massage
+        therapists and acupuncturists. Send your resume to
+        <a href={`mailto:${site.email}`} class="font-semibold text-sage-600 hover:text-sage-700">{site.email}</a>
+        or drop by the clinic and say hello.
+      </p>
+    </div>
+  </section>
+</Layout>

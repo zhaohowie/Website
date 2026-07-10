@@ -1,0 +1,76 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import { site } from '../../data/site.js';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const fmt = (d) =>
+  d.toLocaleDateString('en-CA', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.data.title,
+  description: post.data.description,
+  datePublished: post.data.pubDate.toISOString(),
+  author: { '@type': 'Organization', name: site.name },
+  publisher: { '@type': 'Organization', name: site.name },
+  mainEntityOfPage: new URL(`/blog/${post.id}/`, Astro.site).href,
+};
+---
+
+<Layout title={post.data.title} description={post.data.description}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+  </Fragment>
+
+  <section class="bg-sage-100 border-b border-sage-200">
+    <div class="mx-auto max-w-3xl px-4 py-16 md:py-20">
+      <nav class="text-sm text-sage-700">
+        <a href="/" class="hover:text-sage-900">Home</a>
+        <span class="mx-2 text-sage-400">/</span>
+        <a href="/blog/" class="hover:text-sage-900">Blog</a>
+      </nav>
+      <h1 class="mt-6 font-display text-3xl md:text-5xl text-sage-900 text-balance leading-tight">
+        {post.data.title}
+      </h1>
+      <p class="mt-5 text-sm font-semibold tracking-wide uppercase text-sage-600">
+        {fmt(post.data.pubDate)} · {site.shortName}
+      </p>
+    </div>
+  </section>
+
+  <article class="mx-auto max-w-3xl px-4 py-16">
+    <div
+      class="prose prose-lg max-w-none prose-headings:font-display prose-headings:text-sage-900 prose-a:text-sage-600 prose-a:font-semibold prose-a:no-underline hover:prose-a:underline prose-strong:text-sage-900 text-ink/85"
+    >
+      <Content />
+    </div>
+
+    <div class="mt-14 rounded-2xl bg-sage-50 border border-sage-200 p-8 text-center">
+      <h2 class="font-display text-2xl text-sage-900">Ready to book?</h2>
+      <p class="mx-auto mt-3 max-w-xl text-ink/80">
+        Open 7 days a week, 9 AM–9 PM in Windermere, south Edmonton. Direct
+        billing to most insurance providers.
+      </p>
+      <a
+        href={site.bookingUrl}
+        target="_blank"
+        rel="noopener"
+        class="mt-6 inline-block rounded-full bg-sage-600 px-8 py-3.5 font-semibold text-white shadow-sm hover:bg-sage-700 transition-colors"
+      >
+        Book an Appointment
+      </a>
+    </div>
+  </article>
+</Layout>

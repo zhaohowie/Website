@@ -1,0 +1,261 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { site, services, therapists } from '../data/site.js';
+
+const featured = services.filter((s) => s.featured);
+const teamPreview = therapists.slice(0, 3);
+const fromPrice = (s) => Math.min(...s.prices.map((p) => p.price));
+---
+
+<Layout>
+  <!-- Hero -->
+  <section class="relative overflow-hidden bg-sage-100">
+    <div class="pointer-events-none absolute inset-0">
+      <div class="parallax-blob absolute -top-36 -right-24" data-depth="28">
+        <div class="blob size-[30rem] rounded-full bg-teal-300/40 blur-3xl"></div>
+      </div>
+      <div class="parallax-blob absolute top-20 -left-36" data-depth="44">
+        <div class="blob blob-slow size-[26rem] rounded-full bg-violet-300/35 blur-3xl"></div>
+      </div>
+      <div class="parallax-blob absolute -bottom-44 right-1/4" data-depth="16">
+        <div class="blob blob-delay size-[24rem] rounded-full bg-pink-300/30 blur-3xl"></div>
+      </div>
+    </div>
+    <div class="relative mx-auto max-w-6xl px-4 py-24 md:py-32 text-center">
+      <p class="text-sm font-semibold tracking-[0.25em] uppercase text-sage-600">
+        Windermere · Edmonton
+      </p>
+      <h1 class="mt-4 font-display text-4xl md:text-6xl text-sage-900 leading-tight text-balance">
+        Relax. Recover.<br class="hidden md:block" />
+        <span class="text-gradient">Feel like yourself again.</span>
+      </h1>
+      <p class="mx-auto mt-6 max-w-2xl text-lg text-sage-800/80">
+        Registered massage therapy, acupuncture and manual osteopathy — with direct
+        billing to most insurance providers. Open every day, 9 AM to 9 PM.
+      </p>
+      <div class="mt-10 flex flex-wrap justify-center gap-4">
+        <a
+          href={site.bookingUrl}
+          target="_blank"
+          rel="noopener"
+          class="btn-glow rounded-full bg-sage-600 px-8 py-4 font-semibold text-white hover:bg-sage-700 transition-colors"
+        >
+          Book an Appointment
+        </a>
+        <a
+          href="/services/"
+          class="rounded-full border border-sage-400 px-8 py-4 font-semibold text-sage-800 hover:bg-sage-200/60 hover:scale-[1.03] transition-all"
+        >
+          Services &amp; Prices
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trust bar -->
+  <section class="border-b border-sage-200 bg-cream">
+    <div class="mx-auto max-w-6xl px-4 py-8 grid gap-6 sm:grid-cols-3 text-center" data-stagger>
+      <div>
+        <p class="font-display text-xl text-sage-800">Open 7 days a week</p>
+        <p class="mt-1 text-sm text-ink/70">9 AM – 9 PM, including weekends</p>
+      </div>
+      <div>
+        <p class="font-display text-xl text-sage-800">Direct billing</p>
+        <p class="mt-1 text-sm text-ink/70">We bill most insurance providers for you</p>
+      </div>
+      <div>
+        <p class="font-display text-xl text-sage-800">Licensed professionals</p>
+        <p class="mt-1 text-sm text-ink/70">Registered massage therapists &amp; acupuncturists</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="mx-auto max-w-6xl px-4 py-20">
+    <div class="flex items-end justify-between gap-4">
+      <div>
+        <p class="text-sm font-semibold tracking-[0.25em] uppercase text-sage-600">Our services</p>
+        <h2 class="mt-2 font-display text-3xl md:text-4xl text-sage-900">
+          Treatments for pain, stress and recovery
+        </h2>
+      </div>
+      <a href="/services/" class="hidden md:inline text-sm font-semibold text-sage-600 hover:text-sage-700">
+        View all services →
+      </a>
+    </div>
+    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3" data-stagger>
+      {
+        featured.map((service) => (
+          <a
+            href={`/services/${service.slug}/`}
+            class="group card-lift rounded-2xl border border-sage-200 bg-white p-7 shadow-sm hover:border-sage-300"
+          >
+            <h3 class="font-display text-xl text-sage-900 group-hover:text-sage-600 transition-colors">
+              {service.name}
+            </h3>
+            <p class="mt-3 text-sm leading-relaxed text-ink/70">{service.description}</p>
+            <p class="mt-5 text-sm font-semibold text-sage-600">
+              From ${fromPrice(service)} · view options →
+            </p>
+          </a>
+        ))
+      }
+    </div>
+    <a href="/services/" class="mt-8 inline-block md:hidden text-sm font-semibold text-sage-600">
+      View all services →
+    </a>
+  </section>
+
+  <!-- Why us -->
+  <section class="bg-sage-50 border-y border-sage-200">
+    <div class="mx-auto max-w-6xl px-4 py-20 grid gap-12 lg:grid-cols-2 lg:items-center">
+      <div class="reveal">
+        <p class="text-sm font-semibold tracking-[0.25em] uppercase text-sage-600">Why Ware</p>
+        <h2 class="mt-2 font-display text-3xl md:text-4xl text-sage-900">
+          Relaxing &amp; rehabilitative care, close to home
+        </h2>
+        <p class="mt-5 leading-relaxed text-ink/80">
+          Our clinic in Windermere brings together experienced registered massage
+          therapists, acupuncturists and manual osteopathic therapists under one
+          roof. Whether you need relief from chronic pain, recovery after an
+          accident, prenatal care or simply an hour to unwind, we tailor every
+          session to you.
+        </p>
+        <ul class="mt-6 space-y-3 text-ink/80">
+          {
+            [
+              'Direct billing to most insurance providers — no paperwork for you',
+              'MVA (motor vehicle accident) treatment and billing',
+              'Wide range of therapies: massage, acupuncture, cupping, osteopathy',
+              'Easy online booking with instant confirmation',
+            ].map((point) => (
+              <li class="flex gap-3">
+                <span class="mt-1 grid size-5 shrink-0 place-items-center rounded-full bg-sage-200 text-sage-700">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 6 9 17l-5-5" />
+                  </svg>
+                </span>
+                {point}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div class="reveal card-lift overflow-hidden rounded-3xl bg-gradient-to-br from-sage-700 via-sage-700 to-teal-800 text-cream">
+        <img
+          src="/images/building-day.jpg"
+          alt="Ware Therapeutic Massage & Acupuncture clinic building in Windermere, Edmonton"
+          class="w-full aspect-[16/9] object-cover"
+          loading="lazy"
+        />
+        <div class="p-10 pt-8">
+        <h3 class="font-display text-2xl">Visit us</h3>
+        <p class="mt-4 text-sage-100">{site.address}</p>
+        <p class="mt-2 text-sage-100">{site.hours}</p>
+        <p class="mt-2 text-sage-100">
+          {site.phones[0]} · {site.phones[1]}
+        </p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a
+            href={site.mapsUrl}
+            target="_blank"
+            rel="noopener"
+            class="rounded-full bg-cream px-6 py-3 text-sm font-semibold text-sage-800 hover:bg-white transition-colors"
+          >
+            Get directions
+          </a>
+          <a
+            href="/contact/"
+            class="rounded-full border border-sage-400 px-6 py-3 text-sm font-semibold hover:bg-sage-600 transition-colors"
+          >
+            Contact us
+          </a>
+        </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team preview -->
+  <section class="mx-auto max-w-6xl px-4 py-20">
+    <div class="flex items-end justify-between gap-4">
+      <div>
+        <p class="text-sm font-semibold tracking-[0.25em] uppercase text-sage-600">Our team</p>
+        <h2 class="mt-2 font-display text-3xl md:text-4xl text-sage-900">
+          Meet your therapists
+        </h2>
+      </div>
+      <a href="/therapists/" class="hidden md:inline text-sm font-semibold text-sage-600 hover:text-sage-700">
+        Meet the whole team →
+      </a>
+    </div>
+    <div class="mt-10 grid gap-6 md:grid-cols-3" data-stagger>
+      {
+        teamPreview.map((t) => (
+          <div class="card-lift rounded-2xl border border-sage-200 bg-white p-7 shadow-sm">
+            <div class="flex items-center gap-4">
+              <span class="grid size-14 place-items-center rounded-full bg-sage-100 font-display text-xl text-sage-700">
+                {t.name.replace('Dr. ', '').charAt(0)}
+              </span>
+              <div>
+                <h3 class="font-display text-lg text-sage-900">{t.name}</h3>
+                <p class="text-sm font-semibold text-sage-600">{t.credentials}</p>
+              </div>
+            </div>
+            <p class="mt-4 text-sm leading-relaxed text-ink/70">{t.bio}</p>
+          </div>
+        ))
+      }
+    </div>
+    <a href="/therapists/" class="mt-8 inline-block md:hidden text-sm font-semibold text-sage-600">
+      Meet the whole team →
+    </a>
+  </section>
+
+  <!-- Local area -->
+  <section class="border-t border-sage-200">
+    <div class="mx-auto max-w-3xl px-4 py-20">
+      <p class="text-sm font-semibold tracking-[0.25em] uppercase text-sage-600 text-center">Serving south Edmonton</p>
+      <h2 class="mt-2 font-display text-3xl md:text-4xl text-sage-900 text-center">
+        Your neighbourhood massage &amp; acupuncture clinic
+      </h2>
+      <p class="mt-6 leading-relaxed text-ink/80">
+        Ware Therapeutic Massage &amp; Acupuncture is located in the heart of the
+        Windermere shopping district in south Edmonton, with free parking right
+        outside the door. We're just minutes from Ambleside, Chappelle,
+        Glenridding, Keswick, Terwillegar, Riverbend and the wider Heritage
+        Valley area — an easy stop on the way home via Terwillegar Drive or
+        Anthony Henday Drive.
+      </p>
+      <p class="mt-4 leading-relaxed text-ink/80">
+        Because we're open every day from 9 AM to 9 PM, you can book massage
+        therapy, acupuncture or manual osteopathy around your work and family
+        schedule — evenings and weekends included. With direct billing to most
+        insurance providers, most visits need nothing more than showing up and
+        relaxing.
+      </p>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="bg-sage-50 border-t border-sage-200">
+    <div class="mx-auto max-w-3xl px-4 py-20 text-center">
+      <p class="text-sm font-semibold tracking-[0.25em] uppercase text-sage-600">Reviews</p>
+      <h2 class="mt-2 font-display text-3xl md:text-4xl text-sage-900">
+        Loved by our clients
+      </h2>
+      <p class="mt-5 text-ink/80">
+        Don't take our word for it — read what our clients say about their
+        treatments on Google.
+      </p>
+      <a
+        href={site.mapsUrl}
+        target="_blank"
+        rel="noopener"
+        class="mt-8 inline-block rounded-full border border-sage-400 px-8 py-3.5 font-semibold text-sage-800 hover:bg-sage-100 transition-colors"
+      >
+        Read our Google reviews
+      </a>
+    </div>
+  </section>
+</Layout>

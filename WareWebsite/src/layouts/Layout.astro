@@ -1,0 +1,317 @@
+---
+import '../styles/global.css';
+import { site } from '../data/site.js';
+
+const { title, description } = Astro.props;
+const pageTitle = title
+  ? `${title} | ${site.name}`
+  : `${site.name} | Massage & Acupuncture in Windermere, Edmonton`;
+const pageDescription =
+  description ??
+  'Registered massage therapy, acupuncture and manual osteopathy in Windermere, Edmonton. Direct billing to most insurers. Open 7 days a week, 9 AM–9 PM.';
+
+const nav = [
+  { label: 'Home', href: '/' },
+  { label: 'Services & Prices', href: '/services/' },
+  { label: 'Our Team', href: '/therapists/' },
+  { label: 'About', href: '/about/' },
+  { label: 'FAQ', href: '/faq/' },
+  { label: 'Blog', href: '/blog/' },
+  { label: 'Contact', href: '/contact/' },
+];
+
+const currentPath = Astro.url.pathname;
+const canonicalUrl = new URL(currentPath, Astro.site ?? Astro.url.origin).href;
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'HealthAndBeautyBusiness',
+  name: site.name,
+  telephone: site.phones[0],
+  email: site.email,
+  url: 'https://waremassage.com',
+  priceRange: '$80 - $305',
+  image: 'https://waremassage.com/logo.svg',
+  hasMap: site.mapsUrl,
+  sameAs: [site.facebookUrl],
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '#203 – 6055 Andrews Way SW',
+    addressLocality: 'Edmonton',
+    addressRegion: 'AB',
+    postalCode: 'T6W 3S9',
+    addressCountry: 'CA',
+  },
+  areaServed: [
+    'Windermere',
+    'Ambleside',
+    'Chappelle',
+    'Terwillegar',
+    'Riverbend',
+    'Heritage Valley',
+    'South Edmonton',
+  ],
+  openingHoursSpecification: {
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: [
+      'Monday',
+      'Tuesday',
+      'Wednesday',
+      'Thursday',
+      'Friday',
+      'Saturday',
+      'Sunday',
+    ],
+    opens: '09:00',
+    closes: '21:00',
+  },
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:locale" content="en_CA" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    <slot name="head" />
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <!-- Top bar -->
+    <div class="bg-sage-800 text-sage-100 text-sm">
+      <div class="mx-auto max-w-6xl px-4 py-2 flex flex-wrap items-center justify-between gap-x-6 gap-y-1">
+        <span>{site.hours}</span>
+        <a
+          href={site.mapsUrl}
+          target="_blank"
+          rel="noopener"
+          class="hidden md:inline hover:text-white"
+        >
+          {site.address}
+        </a>
+        <span class="flex gap-4">
+          <a href={`tel:${site.phones[0]}`} class="hover:text-white">{site.phones[0]}</a>
+          <a href={`tel:${site.phones[1]}`} class="hidden sm:inline hover:text-white">{site.phones[1]}</a>
+        </span>
+      </div>
+    </div>
+
+    <!-- Header -->
+    <header class="sticky top-0 z-40 bg-cream/90 backdrop-blur border-b border-sage-200">
+      <div class="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between gap-4">
+        <a href="/" class="flex items-center gap-3">
+          <img src="/logo-mark.svg" alt="" class="h-11 w-auto" />
+          <span class="leading-tight">
+            <span class="block font-display text-lg text-sage-900">Ware Therapeutic</span>
+            <span class="block text-xs tracking-[0.2em] uppercase text-sage-600">Massage &amp; Acupuncture</span>
+          </span>
+        </a>
+
+        <nav class="hidden lg:flex items-center gap-8 text-sm font-medium">
+          {
+            nav.map((item) => (
+              <a
+                href={item.href}
+                class:list={[
+                  'hover:text-sage-600 transition-colors',
+                  currentPath === item.href ? 'text-sage-600' : 'text-ink',
+                ]}
+              >
+                {item.label}
+              </a>
+            ))
+          }
+        </nav>
+
+        <div class="flex items-center gap-3">
+          <a
+            href={site.bookingUrl}
+            target="_blank"
+            rel="noopener"
+            class="inline-flex items-center rounded-full bg-sage-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-sage-700 transition-colors"
+          >
+            Book Now
+          </a>
+          <button
+            id="menu-toggle"
+            class="lg:hidden p-2 text-sage-800"
+            aria-label="Open menu"
+            aria-expanded="false"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <path d="M4 7h16M4 12h16M4 17h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile menu -->
+      <nav id="mobile-menu" class="hidden lg:hidden border-t border-sage-200 bg-cream">
+        <div class="mx-auto max-w-6xl px-4 py-4 flex flex-col gap-4 text-base font-medium">
+          {nav.map((item) => <a href={item.href} class="text-ink hover:text-sage-600">{item.label}</a>)}
+        </div>
+      </nav>
+    </header>
+
+    <main class="flex-1">
+      <slot />
+    </main>
+
+    <!-- CTA band -->
+    <section class="bg-gradient-to-r from-sage-800 via-sage-700 to-teal-800 text-cream">
+      <div class="mx-auto max-w-6xl px-4 py-14 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div>
+          <h2 class="font-display text-3xl">Ready to feel better?</h2>
+          <p class="mt-2 text-sage-100">Book online in under a minute, or give us a call — we're open every day.</p>
+        </div>
+        <div class="flex gap-4">
+          <a
+            href={site.bookingUrl}
+            target="_blank"
+            rel="noopener"
+            class="rounded-full bg-cream text-sage-800 px-6 py-3 font-semibold hover:bg-white transition-colors"
+          >
+            Book Online
+          </a>
+          <a
+            href={`tel:${site.phones[0]}`}
+            class="rounded-full border border-sage-300 px-6 py-3 font-semibold hover:bg-sage-600 transition-colors"
+          >
+            Call {site.phones[0]}
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-sage-900 text-sage-200 text-sm">
+      <div class="mx-auto max-w-6xl px-4 py-12 grid gap-10 md:grid-cols-3">
+        <div>
+          <p class="font-display text-lg text-cream">{site.name}</p>
+          <p class="mt-3">{site.address}</p>
+          <p class="mt-1">
+            <a href={site.mapsUrl} target="_blank" rel="noopener" class="underline hover:text-white">Get directions</a>
+          </p>
+        </div>
+        <div>
+          <p class="font-semibold text-cream">Hours</p>
+          <p class="mt-3">{site.hours}</p>
+          <p class="font-semibold text-cream mt-6">Contact</p>
+          <p class="mt-3">
+            <a href={`tel:${site.phones[0]}`} class="hover:text-white">{site.phones[0]}</a> ·
+            <a href={`tel:${site.phones[1]}`} class="hover:text-white">{site.phones[1]}</a>
+          </p>
+          <p><a href={`mailto:${site.email}`} class="hover:text-white">{site.email}</a></p>
+        </div>
+        <div>
+          <p class="font-semibold text-cream">Quick links</p>
+          <ul class="mt-3 space-y-2">
+            {nav.map((item) => (
+              <li><a href={item.href} class="hover:text-white">{item.label}</a></li>
+            ))}
+            <li>
+              <a href={site.bookingUrl} target="_blank" rel="noopener" class="hover:text-white">Book an appointment</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-sage-800">
+        <div class="mx-auto max-w-6xl px-4 py-4 flex flex-wrap justify-between gap-2">
+          <p>© {new Date().getFullYear()} {site.name}. All rights reserved.</p>
+          <p>Direct billing to most insurance providers.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const toggle = document.getElementById('menu-toggle');
+      const menu = document.getElementById('mobile-menu');
+      toggle?.addEventListener('click', () => {
+        const open = menu?.classList.toggle('hidden') === false;
+        toggle.setAttribute('aria-expanded', String(open));
+      });
+
+      // Header shadow once the page is scrolled
+      const header = document.querySelector('header');
+      const onScroll = () => header?.classList.toggle('scrolled', window.scrollY > 10);
+      onScroll();
+      window.addEventListener('scroll', onScroll, { passive: true });
+
+      // Grids marked data-stagger: children fade up one after another
+      document.querySelectorAll('[data-stagger]').forEach((parent) => {
+        Array.from(parent.children).forEach((child, i) => {
+          child.classList.add('reveal');
+          (child as HTMLElement).style.transitionDelay = `${Math.min(i * 90, 540)}ms`;
+        });
+      });
+
+      // Reveal-on-scroll
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const revealEls = Array.from(document.querySelectorAll('.reveal'));
+      if (reduceMotion) {
+        revealEls.forEach((el) => el.classList.add('is-visible'));
+      } else {
+        let pending = revealEls;
+        let lastCheck = 0;
+        const revealCheck = () => {
+          pending = pending.filter((el) => {
+            const r = el.getBoundingClientRect();
+            // reveal anything at or above the lower edge of the viewport
+            if (r.top < window.innerHeight - 40) {
+              el.classList.add('is-visible');
+              return false;
+            }
+            return true;
+          });
+        };
+        const onReveal = () => {
+          const now = Date.now();
+          if (pending.length && now - lastCheck > 80) {
+            lastCheck = now;
+            revealCheck();
+          }
+        };
+        revealCheck();
+        window.addEventListener('scroll', onReveal, { passive: true });
+        window.addEventListener('resize', onReveal, { passive: true });
+      }
+
+      // Hero blobs follow the mouse slightly
+      const blobs = document.querySelectorAll<HTMLElement>('.parallax-blob');
+      if (blobs.length && !reduceMotion) {
+        window.addEventListener(
+          'pointermove',
+          (e) => {
+            const dx = e.clientX / window.innerWidth - 0.5;
+            const dy = e.clientY / window.innerHeight - 0.5;
+            blobs.forEach((b) => {
+              const depth = Number(b.dataset.depth || 20);
+              b.style.setProperty('--px', `${dx * depth}px`);
+              b.style.setProperty('--py', `${dy * depth}px`);
+            });
+          },
+          { passive: true }
+        );
+      }
+    </script>
+  </body>
+</html>

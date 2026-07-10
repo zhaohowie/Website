@@ -1,0 +1,37 @@
+# Force HTTPS and non-www
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteRule ^ https://waremassage.com%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# 301 redirects from old WordPress URLs (preserve Google rankings)
+RedirectMatch 301 ^/about-us/?$ /about/
+RedirectMatch 301 ^/cancellation/?$ /about/
+RedirectMatch 301 ^/jobs/?$ /about/
+RedirectMatch 301 ^/our-therapists/?$ /therapists/
+RedirectMatch 301 ^/massage-and-acupuncture-service-in-edmonton-windermere/?$ /services/
+RedirectMatch 301 ^/services-prices/?$ /services/
+RedirectMatch 301 ^/news(/.*)?$ /blog/
+RedirectMatch 301 ^/reviews/?$ /
+
+# Custom 404 page
+ErrorDocument 404 /404.html
+
+# Compression
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml text/xml
+</IfModule>
+
+# Browser caching
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType image/jpeg "access plus 1 month"
+ExpiresByType image/png "access plus 1 month"
+ExpiresByType image/svg+xml "access plus 1 month"
+ExpiresByType image/webp "access plus 1 month"
+ExpiresByType text/css "access plus 1 week"
+ExpiresByType application/javascript "access plus 1 week"
+ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>

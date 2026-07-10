@@ -1,0 +1,89 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { site, services } from '../data/site.js';
+---
+
+<Layout
+  title="Services & Prices"
+  description="Massage therapy, acupuncture, manual osteopathy, cupping and more in Windermere, Edmonton. Full price list with direct billing to most insurers."
+>
+  <section class="bg-sage-100 border-b border-sage-200">
+    <div class="mx-auto max-w-6xl px-4 py-16 md:py-20 text-center">
+      <p class="text-sm font-semibold tracking-[0.25em] uppercase text-sage-600">Services &amp; Prices</p>
+      <h1 class="mt-3 font-display text-4xl md:text-5xl text-sage-900">Our treatments</h1>
+      <p class="mx-auto mt-5 max-w-2xl text-ink/80">
+        Prices are in Canadian dollars; GST applies. We offer direct billing to
+        most insurance providers for massage and acupuncture treatments.
+      </p>
+      <a
+        href={site.bookingUrl}
+        target="_blank"
+        rel="noopener"
+        class="mt-8 inline-block rounded-full bg-sage-600 px-8 py-3.5 font-semibold text-white shadow-sm hover:bg-sage-700 transition-colors"
+      >
+        Book an Appointment
+      </a>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 py-16">
+    <div class="grid gap-6 md:grid-cols-2" data-stagger>
+      {
+        services.map((service) => (
+          <article
+            id={service.slug}
+            class="card-lift scroll-mt-28 rounded-2xl border border-sage-200 bg-white p-8 shadow-sm"
+          >
+            <h2 class="font-display text-2xl text-sage-900">
+              <a href={`/services/${service.slug}/`} class="hover:text-sage-600 transition-colors">
+                {service.name}
+              </a>
+            </h2>
+            <p class="mt-3 text-sm leading-relaxed text-ink/70">{service.description}</p>
+            <table class="mt-6 w-full text-sm">
+              <tbody>
+                {service.prices.map((p) => (
+                  <tr class="border-t border-sage-100">
+                    <td class="py-2.5 text-ink/80">{p.duration}</td>
+                    <td class="py-2.5 text-right font-semibold text-sage-800">
+                      {p.note === 'starting from' ? 'from ' : ''}${p.price}
+                      {p.note && p.note !== 'starting from' ? (
+                        <span class="ml-1 font-normal text-ink/60">({p.note})</span>
+                      ) : null}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <div class="mt-6 flex flex-wrap gap-x-6 gap-y-2">
+              <a
+                href={`/services/${service.slug}/`}
+                class="text-sm font-semibold text-sage-600 hover:text-sage-700"
+              >
+                Learn more →
+              </a>
+              <a
+                href={site.bookingUrl}
+                target="_blank"
+                rel="noopener"
+                class="text-sm font-semibold text-sage-600 hover:text-sage-700"
+              >
+                Book this treatment →
+              </a>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+
+    <div class="mt-12 rounded-2xl bg-sage-50 border border-sage-200 p-8 text-center">
+      <h2 class="font-display text-2xl text-sage-900">Direct billing available</h2>
+      <p class="mx-auto mt-3 max-w-2xl text-ink/80">
+        We bill most insurance providers directly for massage and acupuncture
+        treatments, including MVA (motor vehicle accident) claims. Not sure if
+        your plan is covered? <a href="/contact/" class="font-semibold text-sage-600 hover:text-sage-700">Ask us</a> —
+        we're happy to check.
+      </p>
+    </div>
+  </section>
+</Layout>
