@@ -2,10 +2,12 @@
 import '../styles/global.css';
 import { site } from '../data/site.js';
 
-const { title, description } = Astro.props;
-const pageTitle = title
-  ? `${title} | ${site.name}`
-  : `${site.name} | Massage & Acupuncture in Windermere, Edmonton`;
+const { title, description, titleOverride } = Astro.props;
+const pageTitle =
+  titleOverride ??
+  (title
+    ? `${title} | ${site.name}`
+    : `${site.name} | Massage & Acupuncture in Windermere, Edmonton`);
 const pageDescription =
   description ??
   'Registered massage therapy, acupuncture and manual osteopathy in Windermere, Edmonton. Direct billing to most insurers. Open 7 days a week, 9 AM–9 PM.';
@@ -75,6 +77,10 @@ const schema = {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{pageTitle}</title>
     <meta name="description" content={pageDescription} />
+    <meta name="geo.region" content="CA-AB" />
+    <meta name="geo.placename" content="Windermere, Edmonton, Alberta" />
+    <meta name="geo.position" content="53.4326;-113.6098" />
+    <meta name="ICBM" content="53.4326, -113.6098" />
     <link rel="canonical" href={canonicalUrl} />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={site.name} />
