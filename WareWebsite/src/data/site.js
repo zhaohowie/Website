@@ -199,10 +199,11 @@ export const therapists = [
   {
     name: 'Lijun C.',
     credentials: 'RMT / MOT',
-    bio: 'Born in China with over 7 years of massage therapy experience, Lijun is currently studying Manual Osteopathic therapy. She is a master at finding all of your problem spots — with only a few sessions, she can help you on the road to recovery.',
+    bio: 'Born in China, Lijun is a registered massage therapist and manual osteopathic therapist with over 10 years of hands-on experience. She is a master at finding your problem spots — often setting clients on the road to recovery in just a few sessions — and also offers traditional Chinese Tuina massage. Her wide-ranging skill set lets her tailor every treatment to your body’s specific needs.',
     specialties: [
       'Deep tissue',
       'Therapeutic & sports massage',
+      'Tuina (traditional Chinese massage)',
       'Prenatal / postnatal',
       'Cupping & hot stones',
       'Foot reflexology',
