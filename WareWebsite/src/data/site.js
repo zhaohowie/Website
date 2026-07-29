@@ -287,11 +287,13 @@ export const therapists = [
   {
     name: 'Maria F.',
     credentials: 'RMT',
-    bio: 'A registered massage therapist at Ware Therapeutic Massage & Acupuncture, Maria provides attentive, individualized treatments tailored to each client’s needs.',
+    bio: 'Maria is a caring and dedicated registered massage therapist with over three years of hands-on experience. She provides personalized treatments built around each client’s comfort level, health goals and areas of concern — adjusting her pressure and techniques to keep every session comfortable and effective. Whether you’re managing muscle tension, everyday stress, discomfort from physical activity, or simply need time to unwind, Maria’s friendly, professional approach helps clients feel relaxed, refreshed and supported throughout their wellness journey.',
     specialties: [
-      'Therapeutic massage',
       'Deep tissue',
+      'Therapeutic massage',
       'Relaxation massage',
+      'Hot stone',
+      'Pregnancy / prenatal massage',
     ],
   },
 ];
