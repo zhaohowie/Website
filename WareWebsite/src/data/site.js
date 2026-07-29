@@ -268,4 +268,30 @@ export const therapists = [
       'Deep tissue & therapeutic massage',
     ],
   },
+  {
+    name: 'Jennifer K.',
+    credentials: 'RMT',
+    bio: 'A graduate of MaKami’s 3,000-hour program, Jennifer is dedicated to evidence-informed, client-centered care that helps manage pain, restore function and improve overall well-being. She takes a thorough, individualized approach, tailoring each session to her clients’ specific needs and goals — combining a variety of therapeutic techniques to reduce pain, improve mobility, relieve muscle tension and support recovery from injury or everyday physical stress. She is committed to helping clients move better, feel better and achieve lasting results through compassionate, professional care.',
+    specialties: [
+      'Deep tissue',
+      'Therapeutic & sports massage',
+      'Prenatal / postnatal',
+      'Cupping & hot stones',
+      'Lymphatic drainage',
+      'Swedish massage',
+      'Scalp & facial massage',
+      'Muscle scraping',
+      'Myofascial release',
+    ],
+  },
+  {
+    name: 'Maria F.',
+    credentials: 'RMT',
+    bio: 'A registered massage therapist at Ware Therapeutic Massage & Acupuncture, Maria provides attentive, individualized treatments tailored to each client’s needs.',
+    specialties: [
+      'Therapeutic massage',
+      'Deep tissue',
+      'Relaxation massage',
+    ],
+  },
 ];
