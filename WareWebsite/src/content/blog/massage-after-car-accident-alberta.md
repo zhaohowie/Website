@@ -34,4 +34,4 @@ Every injury is different, but a common pattern is more frequent treatments earl
 
 Massage also pairs well with [acupuncture](/services/acupuncture/) for accident-related headaches, sleep disruption and lingering pain.
 
-*Recovering from a collision? Ware Therapeutic Massage & Acupuncture in Windermere, south Edmonton can help. [Book online](https://booking.waremassage.com/book-now) or call 780-566-0136 — and have your claim number handy.*
+*Recovering from a collision? Ware Therapeutic Massage & Acupuncture in Windermere, south Edmonton can help. [Book online](https://toosar.com/book/t/kxjnksbulmj6rl9g8omaipmv) or call 780-566-0136 — and have your claim number handy.*

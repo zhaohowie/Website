@@ -33,4 +33,4 @@ One caution: don't leave your coverage until December. Every year, clients disco
 
 The best frequency is one you'll actually keep. A realistic monthly appointment beats an ambitious weekly plan you abandon by February. Tell your RMT your goals and your budget — they'll design a plan around both.
 
-*Ware Therapeutic Massage & Acupuncture — open 7 days a week, 9 AM–9 PM in Windermere, south Edmonton. [Book your next massage online](https://booking.waremassage.com/book-now).*
+*Ware Therapeutic Massage & Acupuncture — open 7 days a week, 9 AM–9 PM in Windermere, south Edmonton. [Book your next massage online](https://toosar.com/book/t/kxjnksbulmj6rl9g8omaipmv).*

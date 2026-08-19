@@ -39,4 +39,4 @@ Just your **benefits card** (or the plan and member numbers from your insurer's 
 
 Treatment after a motor vehicle accident works differently — it's billed through your **MVA insurance claim** rather than your extended health plan. Read more about [MVA massage treatment](/services/mva-treatment/), or bring your claim number and insurer details to your first appointment and we'll handle the paperwork.
 
-*Ware Therapeutic Massage & Acupuncture direct bills most insurers. Open 7 days a week in Windermere, Edmonton. [Book online](https://booking.waremassage.com/book-now) or call 780-566-0136.*
+*Ware Therapeutic Massage & Acupuncture direct bills most insurers. Open 7 days a week in Windermere, Edmonton. [Book online](https://toosar.com/book/t/kxjnksbulmj6rl9g8omaipmv) or call 780-566-0136.*

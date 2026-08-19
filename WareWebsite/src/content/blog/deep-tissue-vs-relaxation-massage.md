@@ -38,4 +38,4 @@ Here's the secret: a skilled RMT blends techniques all the time. Book a [therape
 - **Specific, stubborn problem area?** Deep tissue.
 - **Bit of both, or not sure?** Therapeutic — and let your RMT tailor it.
 
-*Ware Therapeutic Massage & Acupuncture — Windermere, south Edmonton. Open 7 days, 9 AM–9 PM, direct billing available. [Book online](https://booking.waremassage.com/book-now).*
+*Ware Therapeutic Massage & Acupuncture — Windermere, south Edmonton. Open 7 days, 9 AM–9 PM, direct billing available. [Book online](https://toosar.com/book/t/kxjnksbulmj6rl9g8omaipmv).*

@@ -42,4 +42,4 @@ Cupping is especially popular with:
 
 Stay hydrated before and after your session, avoid intense workouts the same day, and keep the area warm and covered afterwards. Cupping isn't recommended over broken skin or for people with certain blood conditions — mention any health concerns when you book, and our practitioners will advise you.
 
-*Try [fire cupping with massage](/services/fire-cupping/) at Ware Therapeutic Massage & Acupuncture in Windermere, Edmonton. [Book online](https://booking.waremassage.com/book-now) or call 780-566-0136.*
+*Try [fire cupping with massage](/services/fire-cupping/) at Ware Therapeutic Massage & Acupuncture in Windermere, Edmonton. [Book online](https://toosar.com/book/t/kxjnksbulmj6rl9g8omaipmv) or call 780-566-0136.*

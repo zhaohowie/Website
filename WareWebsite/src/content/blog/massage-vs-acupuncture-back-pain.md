@@ -41,4 +41,4 @@ If your back pain involves numbness, weakness in the legs, or follows a fall or 
 
 Book a [therapeutic massage](/services/therapeutic-massage/) as a starting point and tell your RMT what's going on. They'll assess your back and tell you honestly whether massage, acupuncture, or a combination will serve you best. Both treatments are eligible for direct billing to most insurance plans.
 
-*Ware Therapeutic Massage & Acupuncture is open 7 days a week, 9 AM–9 PM, in Windermere, south Edmonton. [Book online](https://booking.waremassage.com/book-now) or call 780-566-0136.*
+*Ware Therapeutic Massage & Acupuncture is open 7 days a week, 9 AM–9 PM, in Windermere, south Edmonton. [Book online](https://toosar.com/book/t/kxjnksbulmj6rl9g8omaipmv) or call 780-566-0136.*

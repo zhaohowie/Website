@@ -36,4 +36,4 @@ Most clients begin regular prenatal massage in the **second trimester** and cont
 
 Prenatal massage is regular massage therapy in the eyes of your insurance — performed by an RMT, eligible under most extended health plans, and we [direct bill](/faq/) most providers.
 
-*Book a [maternity massage](/services/maternity-massage/) at Ware Therapeutic Massage & Acupuncture in Windermere, south Edmonton — open 7 days a week. [Book online](https://booking.waremassage.com/book-now) or call 780-566-0136.*
+*Book a [maternity massage](/services/maternity-massage/) at Ware Therapeutic Massage & Acupuncture in Windermere, south Edmonton — open 7 days a week. [Book online](https://toosar.com/book/t/kxjnksbulmj6rl9g8omaipmv) or call 780-566-0136.*

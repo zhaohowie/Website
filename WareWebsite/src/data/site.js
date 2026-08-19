@@ -6,7 +6,7 @@ export const site = {
   phones: ['780-566-0136', '780-758-6699'],
   email: 'ware@waremassage.com',
   hours: 'Open 7 days a week · 9 AM – 9 PM',
-  bookingUrl: 'https://booking.waremassage.com/book-now',
+  bookingUrl: 'https://toosar.com/book/t/kxjnksbulmj6rl9g8omaipmv',
   facebookUrl: 'https://www.facebook.com/waremassage',
   mapsUrl:
     'https://www.google.com/maps?q=6055+Andrews+Way+SW,+Edmonton,+AB+T6W+3S9',
