@@ -297,4 +297,32 @@ export const therapists = [
       'Pregnancy / prenatal massage',
     ],
   },
+  {
+    name: 'Marivic',
+    credentials: 'RMT',
+    bio: 'A graduate of MaKami College with 3,000 hours of professional training, Marivic brings a strong understanding of muscle tension, pain patterns and therapeutic technique to every session. She takes a personalized approach — listening carefully to each client’s concerns and adjusting pressure and technique to their comfort level — to help relieve pain, ease tension, improve mobility and reduce everyday stress. Known for her caring, attentive and professional manner, she creates a welcoming space where every client feels relaxed and well cared for.',
+    specialties: [
+      'Deep tissue',
+      'Therapeutic massage',
+      'Relaxation massage',
+      'Hot stone',
+      'Prenatal massage',
+      'Neck, shoulder & back tension',
+      'Stress relief & mobility',
+    ],
+  },
+  {
+    name: 'Sherry',
+    credentials: 'R.Ac.',
+    bio: 'An experienced Registered Acupuncturist with 10 years of clinical practice, Sherry is skilled across a range of Traditional Chinese Medicine techniques — acupuncture, electroacupuncture, cupping and moxibustion. She takes the time to understand each client’s individual needs and tailors her approach to their condition and wellness goals, helping with acute and chronic pain, muscle tension, stress, sleep difficulties and digestive concerns. Her goal is to reduce discomfort, restore balance and support the body’s natural healing process.',
+    specialties: [
+      'Acupuncture',
+      'Electroacupuncture',
+      'Cupping',
+      'Moxibustion',
+      'Pain management',
+      'Stress & sleep',
+      'Digestive concerns',
+    ],
+  },
 ];
