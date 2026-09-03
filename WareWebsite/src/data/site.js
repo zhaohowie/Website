@@ -135,7 +135,7 @@ export const services = [
       'Pressure-point therapy for the feet that promotes relaxation and supports whole-body wellness.',
     prices: [
       { duration: '60 min', price: 120 },
-      { duration: '90 min', price: 170 },
+      { duration: '90 min', price: 175 },
     ],
   },
   {
@@ -178,7 +178,7 @@ export const services = [
       { duration: '30 min', price: 160, note: '$80/person' },
       { duration: '45 min', price: 190, note: '$95/person' },
       { duration: '60 min', price: 220, note: '$110/person' },
-      { duration: '90 min', price: 330, note: '$165/person' },
+      { duration: '90 min', price: 340, note: '$170/person' },
       { duration: '120 min', price: 440, note: '$220/person' },
     ],
   },
